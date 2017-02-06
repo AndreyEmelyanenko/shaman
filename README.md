@@ -4,9 +4,9 @@ Every worker reads url from a kafka topic or stdin, runs it through a set of pro
 writes results to mongo or kafka output topic. Every stage has it's own config block. It looks like:
 
 <code>
-[download_stage]
-connect_timeout = 3
-download_timeout = 3
+[download_stage]<br>
+connect_timeout = 3<br>
+download_timeout = 3<br>
 order = 10
 </code>
 
@@ -35,12 +35,13 @@ A set of stages will be the following:
 
 Additionally, we want to save results to two different files (downloaded, failed).
 In such case we can use a single stage, but the configuration will look like:
-
-[STAGES]
-stdin_reader_stage = 'classname':'StdinReaderStage'
-download_stage = 'classname':'DownloadStage'
-file_output_stage_failed = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+<code>
+[STAGES]<br>
+stdin_reader_stage = 'classname':'StdinReaderStage'<br>
+download_stage = 'classname':'DownloadStage'<br>
+file_output_stage_failed = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'<br>
 file_output_stage_downloaded = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+</code>
 
 The usual format is the following:
 <name_of_python_module> = 'classname':<name_of_python_class>
@@ -49,27 +50,28 @@ In the case of two different stages with the one pythone module config will be:
 <custom_name_of_stage> = 'classname':<name_of_python_class>,'python_class_filename':<name_of_python_module>
 
 Every stage has it's own configuration block:
+<code>
+[stdin_reader_stage]<br>
+order = 0<br>
+owner = testing<br>
+comment = ''<br>
 
-[stdin_reader_stage]
-order = 0
-owner = testing
-comment = ''
-
-[download_stage]
-connect_timeout = 3
-download_timeout = 3
-order = 10
-
-[file_output_stage_failed]
-order = 20
-out_dir = /tmp/shaman/data/failed
-fields_to_print = results
-
-[file_output_stage_downloaded]
-order = 25
-out_dir = /tmp/shaman/data/downloaded
-fields_to_print = results
-
+<br>
+[download_stage]<br>
+connect_timeout = 3<br>
+download_timeout = 3<br>
+order = 10<br>
+<br>
+[file_output_stage_failed]<br>
+order = 20<br>
+out_dir = /tmp/shaman/data/failed<br>
+fields_to_print = results<br>
+<br>
+[file_output_stage_downloaded]<br>
+order = 25<br>
+out_dir = /tmp/shaman/data/downloaded<br>
+fields_to_print = results<br>
+</code>
 
 Running shaman on a small urls.txt file (it contains 2 urls):
 cat urls.txt | python bin/daemon.py -i -c etc/crawler.config
