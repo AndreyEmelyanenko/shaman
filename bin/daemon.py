@@ -176,18 +176,9 @@ class Daemon:
         if cliArgs.print_fields:
             order = cliArgs.print_fields[0]
             fields_to_print = cliArgs.print_fields[1:]
-            # if 'message_printer' in initial_config:
-            #     initial_config['STAGES']['message_printer'] = {'name': 'MessagePrinterStage',
-            #                                                    'python_class_filename': 'message_printer'}
-            #
-            #     initial_config['STAGES']['message_printer_custom'] = {'name': 'MessagePrinterStage',
-            #                                                           'python_class_filename': 'message_printer'}
-            # else:
-            #     initial_config['STAGES']['message_printer_custom'] = {'name': 'MessagePrinterStage',
-            #                                                           'python_class_filename': 'message_printer'}
 
-            initial_config['STAGES']['message_printer_custom_'] = {'name': 'MessagePrinterStage',
-                                                                   'python_class_filename': 'message_printer'}
+            initial_config['STAGES']['message_printer_custom_'] = "'classname': 'MessagePrinterStage'," \
+                                                                  "'python_class_filename': 'message_printer'"
             initial_config['message_printer_custom_'] = {'order': int(order),
                                                          'fields_to_print': ",".join(fields_to_print)}
 
