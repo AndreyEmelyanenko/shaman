@@ -24,9 +24,8 @@ Welcome to shaman's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
-   shamanapp.analyzers
 
 
 Indices and tables
