@@ -3,7 +3,7 @@ Worker's description
 
 This page describes consumer class.
 
-.. automodule:: consumer
+.. automodule:: consumer.py
 
 .. autoclass:: Consumer
    :members:
