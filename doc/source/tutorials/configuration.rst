@@ -15,39 +15,38 @@ All stages are split to different types (it is optional). It is possible to crea
 
 Let's consider an example. There is a list of urls, which needs to be dowloaded and saved to a file. We wanna know, which urls will be downloaded and which won't. A set of stages will be the following: - stdin_reader_stage (to read urls one by one from a standard input) - download_stage (to download) - file_output_stage (to save results into file in a json format)
 
-Additionally, we want to save results to two different files (downloaded, failed). In such case we can use a single stage, but the configuration will look like:
+Additionally, we want to save results to two different files (downloaded, failed). In such case we can use a single stage,
+but the configuration will look like::
 
-<code>
-[STAGES]
-stdin_reader_stage = 'classname':'StdinReaderStage'
-download_stage = 'classname':'DownloadStage'
-file_output_stage_failed = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
-file_output_stage_downloaded = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
-</code>
+    [STAGES]
+    stdin_reader_stage = 'classname':'StdinReaderStage'
+    download_stage = 'classname':'DownloadStage'
+    file_output_stage_failed = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+    file_output_stage_downloaded = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+
 The usual format is the following: = 'classname':
 
 In the case of two different stages with the one pythone module config will be: = 'classname':,'python_class_filename':
 
-Every stage has it's own configuration block:
-<code>
-[stdin_reader_stage]
-order = 0
-owner = testing
-comment = ''
+Every stage has it's own configuration block::
+
+    [stdin_reader_stage]
+    order = 0
+    owner = testing
+    comment = ''
 
 
-[download_stage]
-connect_timeout = 3
-download_timeout = 3
-order = 10
+    [download_stage]
+    connect_timeout = 3
+    download_timeout = 3
+    order = 10
 
-[file_output_stage_failed]
-order = 20
-out_dir = /tmp/shaman/data/failed
-fields_to_print = results
+    [file_output_stage_failed]
+    order = 20
+    out_dir = /tmp/shaman/data/failed
+    fields_to_print = results
 
-[file_output_stage_downloaded]
-order = 25
-out_dir = /tmp/shaman/data/downloaded
-fields_to_print = results
-</code>
+    [file_output_stage_downloaded]
+    order = 25
+    out_dir = /tmp/shaman/data/downloaded
+    fields_to_print = results
