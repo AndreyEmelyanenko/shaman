@@ -1,6 +1,6 @@
 .. _tutorial:
 
-User's Guide
+Stages
 =========
 
 .. toctree::

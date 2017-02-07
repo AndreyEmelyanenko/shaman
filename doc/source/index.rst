@@ -3,8 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to shaman's documentation
+Welcome to shaman's documentation!
 ==================================
+
+Shaman is a python framework for combining and running one after another small
+(or not) processors (called "stages"). For instance, you can create a project with a lot of
+different functions:
+1) web scraping
+2) clean text extracting
+3) clean text lemmatizing
+4) top words (tfidf) counting
+5) saving the result to a database
+
+There are three parts in the shaman library:
+1) stages (actual processors, which do represent some functionality)
+2) consumer (worker, that run them all in a particular order)
+3) daemon (run as many as needed workers. Also used as a CLI unstrument.)
 
 .. raw:: html
 
