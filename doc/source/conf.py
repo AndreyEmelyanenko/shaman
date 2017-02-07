@@ -19,15 +19,14 @@
 #
 import os
 import sys
-sys.path.append("/Users/a.zraev/240116/shaman/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/analyzers/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/helpers/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/analyzers/analyzer_stages/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/analyzers/input_stages/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/analyzers/output_stages/")
-sys.path.append("/Users/a.zraev/240116/shaman/shamanapp/analyzers/general_stages/")
-sys.path.insert(0, os.path.abspath('/Users/a.zraev/240116/shaman/shamanapp'))
+sys.path.append("../../shamanapp/")
+sys.path.append("../../shamanapp/analyzers/")
+sys.path.append("../../shamanapp/helpers/")
+sys.path.append("../../shamanapp/analyzers/analyzer_stages/")
+sys.path.append("../../shamanapp/analyzers/input_stages/")
+sys.path.append("../../shamanapp/analyzers/output_stages/")
+sys.path.append("../../shamanapp/analyzers/general_stages/")
+sys.path.insert(0, os.path.abspath('../../shaman/shamanapp'))
 
 # -- General configuration ------------------------------------------------
 
