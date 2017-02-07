@@ -1,0 +1,7 @@
+shamanapp.analyzers.output_stages.mongo_output_stage module
+===========================================================
+
+.. automodule:: shamanapp.analyzers.output_stages.mongo_output_stage
+    :members:
+    :undoc-members:
+    :show-inheritance:

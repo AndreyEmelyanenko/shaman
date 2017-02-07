@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>shamanapp.analyzers.offline_stages.get_text_from_mongo module &#8212; shaman 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="shaman 1 documentation" href="index.html" />
+    <link rel="up" title="shamanapp.analyzers.offline_stages package" href="shamanapp.analyzers.offline_stages.html" />
+    <link rel="next" title="shamanapp.analyzers.offline_stages.reccomendations_by_artm_stage module" href="shamanapp.analyzers.offline_stages.reccomendations_by_artm_stage.html" />
+    <link rel="prev" title="shamanapp.analyzers.offline_stages package" href="shamanapp.analyzers.offline_stages.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-shamanapp.analyzers.offline_stages.get_text_from_mongo">
+<span id="shamanapp-analyzers-offline-stages-get-text-from-mongo-module"></span><h1>shamanapp.analyzers.offline_stages.get_text_from_mongo module<a class="headerlink" href="#module-shamanapp.analyzers.offline_stages.get_text_from_mongo" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="shamanapp.analyzers.offline_stages.get_text_from_mongo.GetTextFromMongo">
+<em class="property">class </em><code class="descclassname">shamanapp.analyzers.offline_stages.get_text_from_mongo.</code><code class="descname">GetTextFromMongo</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#shamanapp.analyzers.offline_stages.get_text_from_mongo.GetTextFromMongo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="shamanapp.analyzers.abstract_stage.html#shamanapp.analyzers.abstract_stage.AbstractStage" title="shamanapp.analyzers.abstract_stage.AbstractStage"><code class="xref py py-class docutils literal"><span class="pre">shamanapp.analyzers.abstract_stage.AbstractStage</span></code></a></p>
+<p>Gets a clean_text from a mongo collection for a given url.</p>
+<dl class="docutils">
+<dt>Input data:</dt>
+<dd><ul class="first last simple">
+<li>url</li>
+</ul>
+</dd>
+<dt>Output data:</dt>
+<dd><ul class="first last simple">
+<li>clean_text</li>
+</ul>
+</dd>
+<dt>Using modules:</dt>
+<dd><ul class="first last simple">
+<li>pymongo (<a class="reference external" href="https://pypi.python.org/pypi/pymongo">https://pypi.python.org/pypi/pymongo</a>)</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="shamanapp.analyzers.offline_stages.get_text_from_mongo.GetTextFromMongo.do_stage">
+<code class="descname">do_stage</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#shamanapp.analyzers.offline_stages.get_text_from_mongo.GetTextFromMongo.do_stage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="shamanapp.analyzers.html">shamanapp.analyzers package</a><ul>
+  <li><a href="shamanapp.analyzers.offline_stages.html">shamanapp.analyzers.offline_stages package</a><ul>
+      <li>Previous: <a href="shamanapp.analyzers.offline_stages.html" title="previous chapter">shamanapp.analyzers.offline_stages package</a></li>
+      <li>Next: <a href="shamanapp.analyzers.offline_stages.reccomendations_by_artm_stage.html" title="next chapter">shamanapp.analyzers.offline_stages.reccomendations_by_artm_stage module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/shamanapp.analyzers.offline_stages.get_text_from_mongo.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, admin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/shamanapp.analyzers.offline_stages.get_text_from_mongo.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
