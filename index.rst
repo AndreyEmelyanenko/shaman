@@ -11,8 +11,6 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   getting_started.rst
-   shamanapp.helpers.rst
    shamanapp.analyzers.rst
 
 
