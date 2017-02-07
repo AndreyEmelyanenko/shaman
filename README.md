@@ -68,7 +68,7 @@ out_dir = /tmp/shaman/data/failed
 fields_to_print = results
 
 [file_output_stage_downloaded]
-order = 25
+order = 30
 out_dir = /tmp/shaman/data/downloaded
 fields_to_print = results
 ```
