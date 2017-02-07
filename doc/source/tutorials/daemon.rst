@@ -30,9 +30,9 @@ Examples:
     1. Run shaman, reading from an stdin::
 
     cat urls.txt | python bin/daemon.py -c etc/crawler.config -i
-
 Options here: -c <configuration_file>, -i (reading from stdin - True. Default is False)
 
     2. Run shaman, reading from kafka topic in a daemon mode::
 
     python bin/daemon.py -c etc/crawler_kafka.config start -d
+
