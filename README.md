@@ -82,3 +82,5 @@ url : http://rambler.ru</b>
 Results will be put in /tmp/shaman/data/downloaded/worker_[N], where N is a number of worker.
 
 It is possible to create new stages and run them in any sequence desired. 
+
+Link: http://shaman.readthedocs.io/en/latest/ 
