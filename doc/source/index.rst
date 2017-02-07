@@ -9,11 +9,9 @@ Welcome to shaman's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   getting_started.rst
-   shamanapp.helpers.rst
-   shamanapp.analyzers.rst
+   shamanapp.analyzers
 
 
 Indices and tables
