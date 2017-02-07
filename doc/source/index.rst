@@ -10,13 +10,7 @@ Welcome to shaman's documentation!
 ==================================
 
 Shaman is a python framework for combining and running one after another small
-(or not) processors (called "stages"). For instance, you can create a project with a lot of
-different functions:
-   1) web scraping
-   2) clean text extracting
-   3) clean text lemmatizing
-   4) top words (tfidf) counting
-   5) saving the result to a database
+(or not) processors (called "stages").
 
 .. raw:: html
 
