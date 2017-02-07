@@ -12,7 +12,7 @@ Welcome to shaman's documentation!
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    intro
    download
