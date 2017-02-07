@@ -12,14 +12,7 @@ Welcome to shaman's documentation!
 
 .. sidebar:: Getting help
 
-  * Learn more about BigARTM from `IPython Notebooks`_, `NLPub.ru`_, `MachineLearning.ru`_ and several `publications`_.
-
-  * Search for information in the archives of the `bigartm-users`_ mailing list, or
-    `post a question`_.
-
-  * Report bugs with BigARTM in our `ticket tracker`_.
-
-  * Try the `Q&A`_ -- it's got answers to many common questions.
+  * README
 
 Contents:
 
