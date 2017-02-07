@@ -3,7 +3,7 @@ Configuration Description
 
 Every worker reads url from a kafka topic or stdin, runs it through a set of processors (called "stages") and writes results to mongo or kafka output topic. Every stage has it's own config block. It looks like:
 
-.. code:: python
+.. code::
 [download_stage]
 connect_timeout = 3
 download_timeout = 3
