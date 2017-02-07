@@ -12,7 +12,7 @@ Welcome to shaman's documentation!
 
 .. sidebar:: Getting help
 
-  * README
+  * README.md
 
 Contents:
 
