@@ -19,8 +19,7 @@ import sys
 class Consumer(object):
     def __init__(self, basepath, config, worker_num, in_queue):
         """
-        AbstractConsumer constructor, don't modify this method, use init_consumer
-        :param basepath:
+        AbstractConsumer constructor, don't modify this method, use init_consumer.
         """
         self.worker_num = worker_num
         self._consumer_config = config
@@ -100,8 +99,11 @@ class Consumer(object):
 
     def init_consumer(self, basepath, config):
         """
-        :param basepath:
-        :return:
+        :param basepath: path to a project. Could be /opt/shaman (default) or
+        custom (if you cloned a project from github).
+        :param config: parsed configuration (dictionary) of a worker.
+        Contains configuration parameters of a worker: worker_number, logdir, prefix_name, etc.
+        Also contain the configuration parameters for stages.
         """
         self.name = 'worker'
         self.workers_logging_dir = '/'
@@ -113,6 +115,14 @@ class Consumer(object):
         self._sort_stages()
 
     def consume(self):
+        """
+        Creates a Message object (container).
+        Runs all stages in a cycle.
+        Logges the results.
+        Cleans the fields of a Message.
+        Repeates until shutdown signal is not catched.
+        :return:
+        """
         self.init_after_process_start()
         self.py_version = int(sys.version[0])
 
