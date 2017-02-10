@@ -1,7 +1,102 @@
-### Multiprocessing application to download and analyze a content of an html pages.
+### Shaman - multiprocessing tool for parallel work with data
 
-Every worker reads url from a kafka topic or stdin, runs it through a set of processors (called "stages") and
-writes results to mongo or kafka output topic. Every stage has it's own config block. It looks like:
+### Description
+Main idea of shaman is to create pipelines (so called workers) of operations (so called stages) 
+and apply it to data. Here is main principles:
+* workers are composed from stages
+* there are 3 types of stages - input, output and common
+* stages order in worker matters
+* workers can have only one input stage and it should be first
+* workers configuration (together with each stage configuration) is stored in one configuration file
+
+This set of principles allow to use shaman for different (sometimes unexpected) scenarios:
+* web-grabber - start in no deamon mode, read urls from stdin, download it with grab, parse page attributes,
+put some attributes to mongodb, some attributes append to files as json or simple text, some put to kafka
+* data processor - start in no daemon mode, scan mongodb, apply some operations on documents fields, write it back
+* daemon data processor - start in daemon mode, read kafka topic, operate stages on kafka messages, write 
+results back to other kafka topic(s)
+* ...
+
+### Features
+* Simplicity - one configuration for worker stages and main attributes (number of parallel workers,
+ logging directories, etc.)
+* Multiprocessing - shaman can spawn a pool of homogeneous workers and run them in parallel
+* Daemonizing - shaman could be run as daemon
+* Logging - shaman provides distinct logging file for main module and each worker
+
+### Examples
+
+####Example 1 - download list of urls, contained in textfile with '\n' separator
+
+Let's imagine that we have a list of urls in file 'urls.txt' and we want to download 
+them. Some urls would be successfully downloaded and we want to put results in one directory,
+others would be unavailable and we want to put failed results to another directory. Also we want
+to do it parallel with 32 proccesses:
+
+```python
+cat urls.txt | shaman -i -c etc/crawler.config
+```
+Pay attention to shaman arguments, '-i' stands for "read input from stdin, line by line", 
+and '-c' is for "get this config file". 
+
+Right after starting this command you'll see each url from list printed
+in your terminal. Successful results would be saved in '/tmp/shaman/data/downloaded/worker_[N]' 
+files and failed results would be in '/tmp/shaman/data/failed/worker_[N]' files.
+
+Let's dig a little more in config file to understand what just happened.
+
+```python
+[GENERAL]
+basepath = /tmp/shaman
+num_workers = 32
+logfile_path = /tmp/shaman/shaman_daemon.log
+pidfile_path = /tmp/shaman
+
+workers_logging_dir = /tmp/shaman
+worker_prefix = worker_
+stages_dir = shamanapp/analyzers/input_stages;shamanapp/analyzers/output_stages;shamanapp/analyzers/general_stages
+
+[GRAB]
+connect_timeout = 3
+
+[GRAPHITE]
+enabled = False
+global_key = shaman
+host = localhost
+port = 2411
+
+[STAGES]
+stdin_reader_stage = 'classname':'StdinReaderStage'
+download_stage = 'classname':'DownloadStage'
+file_output_stage_failed = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+file_output_stage_downloaded = 'classname':'FileOutputStage','python_class_filename':'file_output_stage'
+
+[stdin_reader_stage]
+order = 0
+owner = testing
+comment = ''
+
+[download_stage]
+connect_timeout = 3
+download_timeout = 3
+order = 10
+
+[file_output_stage_failed]
+order = 20
+out_dir = /tmp/shaman/data/failed
+fields_to_print = results
+
+[file_output_stage_downloaded]
+order = 25
+out_dir = /tmp/shaman/data/downloaded
+fields_to_print = output_dict
+
+[message_printer]
+order = 35
+fields_to_print = url
+```
+
+Every stage has it's own config block. It looks like:
 
 ```python
 [download_stage]  
@@ -13,11 +108,11 @@ order = 10
 The only non-optional parameter is 'order'. It should be unique. Other parameters are optional and depends on a
 particular stage. For instance, in case of 'download_stage', where we use python grab to download a page there are
 two parameters:
-    1. connect_timeout (maximum time to wait a server response)
-    2. download_timeout (maximum time to download a page)
+* connect_timeout (maximum time to wait a server response)
+* download_timeout (maximum time to download a page)
 In this case we redefined those parameters.
 
-All stages are split to different types (it is optional). It is possible to create your own stage, that does
+All stages are split to different types (input, output, common). It is possible to create your own stage, that does
 something with the results from other stages. The basic workflow:
     1. Worker creates a Message object (empty container)
     2. It reads an input data (from kafka, stding or other)
@@ -26,15 +121,6 @@ something with the results from other stages. The basic workflow:
        Then, a stage puts it's result (as an attribute) to a Message.
     5. If no exception occured, after the last stage is done, worker starts to work on a new input data.
 
-Let's consider an example. There is a list of urls, which needs to be dowloaded and saved to a file. We wanna know, which
-urls will be downloaded and which won't.
-A set of stages will be the following:
-    - stdin_reader_stage (to read urls one by one from a standard input)
-    - download_stage (to download)
-    - file_output_stage (to save results into file in a json format)
-
-Additionally, we want to save results to two different files (downloaded, failed).
-In such case we can use a single stage, but the configuration will look like:
 ```python
 [STAGES]
 stdin_reader_stage = 'classname':'StdinReaderStage'
@@ -72,14 +158,6 @@ order = 30
 out_dir = /tmp/shaman/data/downloaded
 fields_to_print = results
 ```
-
-Running shaman on a small urls.txt file (it contains 2 urls):<br>
-<b>cat urls.txt | python bin/daemon.py -i -c etc/crawler.config</b><br>
-Output:<br>
-<b>url : http://yandex.ru<br>
-url : http://rambler.ru</b>
-
-Results will be put in /tmp/shaman/data/downloaded/worker_[N], where N is a number of worker.
 
 It is possible to create new stages and run them in any sequence desired. 
 

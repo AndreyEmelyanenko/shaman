@@ -3,3 +3,4 @@
 *.pid
 *_pids
 *.txt
+.idea
