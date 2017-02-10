@@ -96,7 +96,7 @@ order = 35
 fields_to_print = url
 ```
 
-Every stage has it's own config block. It looks like:
+Every stage has it's own configuration block. It looks like:
 
 ```python
 [download_stage]  
@@ -135,30 +135,5 @@ The usual format is the following:
 In the case of two different stages with the one pythone module config will be:
 <custom_name_of_stage> = 'classname':<name_of_python_class>,'python_class_filename':<name_of_python_module>
 
-Every stage has it's own configuration block:
-```python
-[stdin_reader_stage]
-order = 0
-owner = testing
-comment = ''
-
-
-[download_stage]
-connect_timeout = 3
-download_timeout = 3
-order = 10
-
-[file_output_stage_failed]
-order = 20
-out_dir = /tmp/shaman/data/failed
-fields_to_print = results
-
-[file_output_stage_downloaded]
-order = 30
-out_dir = /tmp/shaman/data/downloaded
-fields_to_print = results
-```
-
-It is possible to create new stages and run them in any sequence desired. 
 
 Link: http://shaman.readthedocs.io/en/latest/ 
