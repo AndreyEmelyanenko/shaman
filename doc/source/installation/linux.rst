@@ -18,6 +18,11 @@ Scroll further below for more OS-specific insructinos.
 
 .. code-block:: bash
 
+    # Step 0. Prerequisites
+    You might wanna need to run these commands:
+    -  (python2.7) sudo pip install -U setuptools pip
+    - (python3.4) sudo pip3 install -U setuptools pip
+    - sudo apt-get install libcurl4-openssl-dev
     # Step 1. using pip:
     sudo pip install shaman
     # Step 2. check if it is working (run in terminal):
@@ -30,12 +35,12 @@ Scroll further below for more OS-specific insructinos.
     -  (python3.4) basepath = /usr/local/lib/python3.4/dist-packages/shaman
     # Step 5. Run it using a config:
     echo "http://yandex.ru" | shaman -c ~/crawler.config -i
-    Output should look like this:
-    url : http://yandex.ru
-    charset: utf-8
+        Output should look like this:
+        url : http://yandex.ru
+        charset: utf-8
     stage shutdown called
 
-* - there are 4 stages in a default config file:
+*  there are 4 stages in a default config file:
     - stdin_reader_stage - reads from stding
     - download_stage - downloads a web page
     - charsetdetect_stage - defines a charset
