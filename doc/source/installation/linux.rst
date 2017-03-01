@@ -18,17 +18,28 @@ Scroll further below for more OS-specific insructinos.
 
 .. code-block:: bash
 
-    # Step 1. Clone repository and build
-    git clone https://github.com/Landish145/shaman
-    cd shaman
-    # Step 2. Install python packages (minimum)
-    wget https://bootstrap.pypa.io/get-pip.py
-    python get-pip.py
-    pip install -r requirements.txt
-    # Step 3. Add shaman to a PYTHONPATH
-    export PYTHONPATH=<shaman_dir>:$PYTHONPATH
+    # Step 1. using pip:
+    sudo pip install shaman
+    # Step 2. check if it is working (run in terminal):
+    shaman --help
+    # Step 3. copy an example* config file to your home folder:
+    - (python2.7) cp /usr/local/lib/python2.7/dist-packages/shaman/etc/crawler.config ~/
+    - (python3.4) cp /usr/local/lib/python3.4/dist-packages/shaman/etc/crawler.config ~/
+    # Step 4. open this file (~/crawler.config) in your favorite text editor and change a basepath param as follows:
+    -  (python2.7) basepath = /usr/local/lib/python2.7/dist-packages/shaman
+    -  (python3.4) basepath = /usr/local/lib/python3.4/dist-packages/shaman
+    # Step 5. Run it using a config:
+    echo "http://yandex.ru" | shaman -c ~/crawler.config -i
+    Output should look like this:
+    url : http://yandex.ru
+    charset: utf-8
+    stage shutdown called
 
-Now you should be able to use shaman command line utility (try ``python bin/daemon.py --help``).
+* - there are 4 stages in a default config file:
+    - stdin_reader_stage - reads from stding
+    - download_stage - downloads a web page
+    - charsetdetect_stage - defines a charset
+    - message_printer - prints results
 
 
 ----------------
