@@ -9,6 +9,7 @@ User's Guide
    configuration
    daemon
    worker
+   message
    stages/index
    guide/index
 
