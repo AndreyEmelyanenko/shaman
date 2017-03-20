@@ -1,10 +1,8 @@
 General
 =========
 
-This page describes general class.
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: analyzers.general_stages.download_stage
-
-.. autoclass:: DownloadStage
-   :members:
-   :special-members: __init__
+   download_stage
+   message_printer
