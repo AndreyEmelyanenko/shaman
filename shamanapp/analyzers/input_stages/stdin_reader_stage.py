@@ -1,5 +1,5 @@
-from shamanapp.analyzers.abstract_stage import AbstractStage
-from shamanapp.abstract_message import control_messages_invert_dict, MessageFormat
+from abstract_stage import AbstractStage
+from abstract_message import control_messages_invert_dict, MessageFormat
 
 import json
 
