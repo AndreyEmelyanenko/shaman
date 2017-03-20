@@ -1,12 +1,10 @@
-General
+Worker's description
 =========
 
+This page describes consumer class.
 
+.. automodule:: consumer
 
-Download_stage description
-
-.. automodule:: analyzers.download_stage
-
-.. autoclass:: DownloadStage
+.. autoclass:: Consumer
    :members:
    :special-members: __init__
