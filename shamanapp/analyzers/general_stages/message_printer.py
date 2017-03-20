@@ -1,4 +1,4 @@
-from shamanapp.analyzers.abstract_stage import AbstractStage
+from abstract_stage import AbstractStage
 
 
 class MessagePrinterStage(AbstractStage):
