@@ -2,8 +2,8 @@ import json
 import traceback
 import time
 
-from shamanapp.analyzers.abstract_stage import AbstractStage
-from shamanapp.abstract_message import control_messages_invert_dict, MessageFormat
+from abstract_stage import AbstractStage
+from abstract_message import control_messages_invert_dict, MessageFormat
 
 from socket import gaierror
 from helpers.url_helpers import canonurl
