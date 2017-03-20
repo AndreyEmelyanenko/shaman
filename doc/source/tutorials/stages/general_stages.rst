@@ -1,10 +1,10 @@
-Worker's description
+General
 =========
 
-This page describes consumer class.
+This page describes abstract_stage class.
 
-.. automodule:: consumer
+.. automodule:: abstract_stage
 
-.. autoclass:: Consumer
+.. autoclass:: AbstractStage
    :members:
    :special-members: __init__
