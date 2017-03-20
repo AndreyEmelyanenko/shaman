@@ -3,7 +3,7 @@ General
 
 This page describes abstract_stage class.
 
-.. automodule:: abstract_stage
+.. automodule:: shaman.shamanapp.analyzers.abstract_stage
 
 .. autoclass:: AbstractStage
    :members:
