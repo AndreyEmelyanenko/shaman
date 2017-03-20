@@ -43,6 +43,9 @@ class Message:
         self.results[result_storage_name]['extra']['models'][result_name] = result
 
     def clean_fields(self):
+        """
+        Cleans all results (from all stages) in order to get an empty clean message for a next iteration.
+        """
         for f in self.__dict__:
             if f not in self._correct_fields:
                 self._fields_to_remove.append(f)
