@@ -1,10 +1,10 @@
 General
 =========
 
-This page describes abstract_stage class.
+This page describes general class.
 
-.. module:: abstract_stage
+.. automodule:: analyzers.general_stages.download_stage
 
-.. autoclass:: AbstractStage
+.. autoclass:: DownloadStage
    :members:
    :special-members: __init__
