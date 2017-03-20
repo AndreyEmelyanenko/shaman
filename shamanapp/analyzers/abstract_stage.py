@@ -1,4 +1,4 @@
-from shamanapp.abstract_message import MessageFormat
+from abstract_message import MessageFormat
 import sys
 import traceback
 
