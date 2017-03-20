@@ -4,7 +4,7 @@ import datetime
 
 from grab.error import GrabTimeoutError, GrabCouldNotResolveHostError, GrabNetworkError, GrabTooManyRedirectsError
 
-from shamanapp.analyzers.abstract_stage import AbstractStage
+from abstract_stage import AbstractStage
 
 
 class DownloadStage(AbstractStage):
