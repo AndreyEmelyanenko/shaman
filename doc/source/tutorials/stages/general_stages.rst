@@ -5,7 +5,7 @@ General
 
 Download_stage description
 
-.. automodule:: download_stage
+.. automodule:: analyzers.download_stage
 
 .. autoclass:: DownloadStage
    :members:
