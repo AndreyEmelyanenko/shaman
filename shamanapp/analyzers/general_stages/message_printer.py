@@ -14,6 +14,9 @@ class MessagePrinterStage(AbstractStage):
         self.message_fields_to_print = self.config['fields_to_print'].split(',')
 
     def do_stage(self, message):
+        """
+        Prints to stdout values of fields from 'fields_to_print' parameter (defined in a configuration file).
+        """
         for field in self.message_fields_to_print:
             if field in message.__dict__:
                 if not type(message.__dict__[field]) is dict:
